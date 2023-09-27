@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARTHOME</title>
+    <link rel="stylesheet" href="final.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />    
+</head>
+
+<body>
+    <div class="all">
+        <h1>
+        <div class="top">
+          <div class="logo"> <img width="330" height="70" src="final_logo.png"></div>
+           <div class="menu">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#end">ABOUT US</a></li>
+                <li><a href="#SOLUTION">SOLUTION</a></li>
+                <li><a href="#PRODUCTS">PRODUCTS</a></li>
+                <li><a href="#">NEWS</a></li>
+             </ul>
+           </div>
+           <div class="search-box">
+            <input type="text" class="search-txt" name="" placeholder="Search....." >
+            <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+           </div>
+        </div>
+        </h1>
+
+        <div class="slideall">
+        <div class="slider">
+            <div class="slide active"><img src="hinh1.jpg" alt=""> </div>
+            <div class="slide"><img src="hinh11.jpg" alt=""> </div>
+            <div class="slide"><img src="hinh3.jpg" alt=""> </div>
+            <div class="slide"> <img src="hinh4.jpg" alt=""> </div>
+            <div class="slide"> <img src="hinh12.jpg" alt=""></div>
+            <div class="slide"> <img src="hinh15.jpg" alt=""> </div>
+            <div class="slide"> <img src="hinh5.jpg" alt=""> </div>
+            <div class="slide"> <img src="hinh8.jpg" alt=""></div>      
+            <div class="navigation">
+              <i class="fas fa-chevron-left prev-btn"></i>
+              <i class="fas fa-chevron-right next-btn"></i>
+            </div>
+            <div class="navigation-visibility">
+              <div class="slide-icon active"></div>
+              <div class="slide-icon"></div>
+              <div class="slide-icon"></div>
+              <div class="slide-icon"></div>
+              <div class="slide-icon"></div>
+              <div class="slide-icon"></div>
+      
+            </div>
+          </div>
+          <script type="text/javascript">
+              const slider = document.querySelector(".slider");
+              const nextBtn = document.querySelector(".next-btn");
+              const prevBtn = document.querySelector(".prev-btn");
+              const slides = document.querySelectorAll(".slide");
+              const slideIcons = document.querySelectorAll(".slide-icon");
+              const numberOfSlides = slides.length;
+              var slideNumber = 0;
+          
+              //image slider next button
+              nextBtn.addEventListener("click", () => {
+                slides.forEach((slide) => {
+                  slide.classList.remove("active");
+                });
+                slideIcons.forEach((slideIcon) => {
+                  slideIcon.classList.remove("active");
+                });
+          
+                slideNumber++;
+          
+                if(slideNumber > (numberOfSlides - 1)){
+                  slideNumber = 0;
+                }
+          
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+              });
+          
+              //image slider previous button
+              prevBtn.addEventListener("click", () => {
+                slides.forEach((slide) => {
+                  slide.classList.remove("active");
+                });
+                slideIcons.forEach((slideIcon) => {
+                  slideIcon.classList.remove("active");
+                });
+          
+                slideNumber--;
+          
+                if(slideNumber < 0){
+                  slideNumber = numberOfSlides - 1;
+                }
+          
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+              });
+          
+              //image slider autoplay
+              var playSlider;
+          
+              var repeater = () => {
+                playSlider = setInterval(function(){
+                  slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                  });
+                  slideIcons.forEach((slideIcon) => {
+                    slideIcon.classList.remove("active");
+                  });
+          
+                  slideNumber++;
+          
+                  if(slideNumber > (numberOfSlides - 1)){
+                    slideNumber = 0;
+                  }
+          
+                  slides[slideNumber].classList.add("active");
+                  slideIcons[slideNumber].classList.add("active");
+                }, 4000);
+              }
+              repeater();
+          
+              //stop the image slider autoplay on mouseover
+              slider.addEventListener("mouseover", () => {
+                clearInterval(playSlider);
+              });
+          
+              //start the image slider autoplay again on mouseout
+              slider.addEventListener("mouseout", () => {
+                repeater();
+              });
+              </script>
+                    
+        </div>
+        <div class="slogan">
+            <div class="container3">
+                <div class="mycard">
+                    <div class="cimg">
+                        <img src="antoan.png" alt="">
+                    </div>
+                    <div class="cdetail">
+                        <h5>AN TOÀN</h5>
+                        <p>Điện thông minh đặc biệt an toàn cho trẻ em, 
+                            tránh được hoàn toàn các nguy cơ chập điện.</p>
+                    </div>
+                </div>
+                <div class="mycard">
+                    <div class="cimg">
+                        <img src="baomat.png" alt="">
+                    </div>
+                    <div class="cdetail">
+                        <h5>BẢO MẬT</h5>
+                        <p>Bảo mật cao với nhiều lớp bảo vệ, chống xâm nhập bất hợp pháp vào hệ thống.</p>
+                    </div>
+                </div>
+                <div class="mycard">
+                    <div class="cimg">
+                        <img src="tknl.png" alt="">
+                    </div>
+                    <div class="cdetail">
+                        <h5>TIẾT KIỆM ĐIỆN</h5>
+                        <p>Nhà thông minh giúp tối ưu hóa hoạt động của các thiết bị trong nhà như: đèn chiếu sáng, điều hòa...</p>
+                    </div>
+                </div>
+                <div class="mycard">
+                    <div class="cimg">
+                        <img src="tiennghi.png" alt="">
+                    </div>
+                    <div class="cdetail">
+                        <h5>TIỆN NGHI</h5>
+                        <p> Điều khiển từng thiết bị điện trong nhà từ xa. Lên lịch hẹn  giờ theo thói quen sinh hoạt của gia đình.</p>
+                    </div>
+                </div>
+                <div class="mycard">
+                    <div class="cimg">
+                        <img src="ondinh.png" alt="">
+                    </div>
+                    <div class="cdetail">
+                        <h5>ỔN ĐỊNH</h5>
+                        <p>Đồng bộ về thiết bị, phần mềm, hệ thống chuẩn kết nối C Mỹ giúp hệ thống hoạt động ổn định, lâu dài.</p>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        </div>
+        <div class="title"> 
+            <h2>Giới Thiệu</h2>  <div class="line">   </div>
+            <div class="infor">
+            <p><b>NHÀ THÔNG MINH LÀ GÌ?</b></p>
+            <div> Nhà thông minh là tên gọi dùng để gọi tên các ngôi nhà, căn hộ, công trình xây dựng được trang bị, 
+                 được cài đặt sử dụng các thiết bị thông minh nhằm mục đích giúp cho ngôi nhà trở nên thông minh hơn.
+                  Giúp ngôi nhà trở nên thông minh hơn, có thể đáp ứng được các chức năng tự động hoặc bán tự động theo ý 
+                  của người dùng. Với Nhà thông minh, bạn có thể điều khiển các thiết bị điện trong nhà qua smartphone hoặc
+                   bằng giọng nói như hệ thống đèn chiếu sáng, điều hòa, bình nóng lạnh, rèm cửa, âm thanh đa vùng…dù bạn ở 
+                   bất cứ nơi nào, chỉ cần có kết nối internet.</div>
+           <img class="hinh1" src="gioithieu.jpg">
+            </div>
+            <div class="infor1"> 
+                <p><b>AN NINH TOÀN DIỆN - TIẾT KIỆM TỐI ĐA</b></p>
+                <div>Tự động gửi tin nhắn cảnh báo khi phát hiện xâm nhập trái phép và tự động đuổi trộm bằng cách kích hoạt các thiết
+                    bị khác như đèn nhấp nháy, còi hú, rèm mở,… Giúp gia chủ loại bỏ nỗi lo quên tắt thiết bị điện,
+                    giảm thời gian chờ đợi các thiết bị trong nhà hoạt động và giảm công sức đi lại tương tác với 
+                    công tắc cơ.</div>
+             <img class="hinh2" src="hinh2.jpg">       
+            </div>
+            <div id="SOLUTION">  <h3 >GIẢI PHÁP</h3> </div> <div class="line">   </div>   
+            <div class="allapp">
+            <div class="app">    
+                    <a target="_blank" href="anhsang.jpg">
+                    <img src="anhsang.jpg" alt="anhsang" width="600" height="400">
+                    </a>
+                   <div class="desc">Giải pháp ánh sáng.</div>
+           </div>
+            <div class="app">
+                    <a target="_blank" href="nhietdo.jpg">
+                    <img src="nhietdo.jpg" alt="nhietdo" width="600" height="400">
+                    </a>
+                    <div class="desc">Giải pháp điều khiển.</div>
+            </div> 
+            <div class="app">
+                    <a target="_blank" href="anninh.jpg">
+                    <img src="anninh.jpg" alt="anninh" width="600" height="400">
+                    </a>
+                    <div class="desc">Giải pháp an ninh, báo động.</div>
+            </div> 
+            <div class="app0">    
+                <a target="_blank" href="amnhac.jpg">
+                <img src="amnhac.jpg" alt="amnhac" width="600" height="400">
+                </a>
+                <div class="desc">Giải pháp âm thanh đa vùng.</div>
+              </div>
+                <div class="app0">
+                        <a target="_blank" href="dogiadung.png">
+                        <img src="dogiadung.png" alt="giadung" width="600" height="400">
+                        </a>
+                        <div class="desc">Giải pháp điều khiển thiết bị.</div>
+                </div> 
+                <div class="app0">
+                        <a target="_blank" href="khoacua.jpg">
+                        <img src="khoacua.jpg" alt="khoacua" width="600" height="400">
+                        </a>
+                        <div class="desc">Giải pháp an ninh.</div>
+                </div>            
+            <div class="app1" >
+            <img src="phone1.jpg"width="400" height="500"></div>
+            </div>
+            <div id="PRODUCTS" class="PRODUCTS"><h4>SẢN PHẨM</h4> <div class="line">   </div>
+            </div>
+            <div class="container">    
+                <div class="mycard">
+                    <div class="cimg">
+                        <img src="room1.jpg" alt="">
+                    </div>
+                    <div class="cdetail">
+                        <h5>PHÒNG 1</h5>
+                        <li>Hiển thị: nhiệt độ, Độ ẩm, hoạt động</li>
+                        <li>Điều khiển: điều hòa, ánh sáng, quạt.</li>
+                    </div>
+                </div>
+                <div class="mycard">
+                    <div class="cimg">
+                        <img src="phong5.jpg" alt="">
+                    </div>
+                    <div class="cdetail">
+                        <h5>PHÒNG 2</h5>
+                        <li>Hiển thị: nhiệt độ, Độ ẩm, hoạt động</li>
+                        <li>Điều khiển: điều hòa, ánh sáng, quạt.</li>
+                    </div>
+                </div>
+                <div class="mycard">
+                    <div class="cimg">
+                        <img src="phong4.png" alt="">
+                    </div>
+                    <div class="cdetail">
+                        <h5>Phòng 3</h5>
+                        <li>Hiển thị: nhiệt độ, Độ ẩm, hoạt động</li>
+                        <li>Điều khiển: điều hòa, ánh sáng, quạt.</li>
+                    </div>
+                </div>
+            </div>
+            <div id="nutnhan" class="nutnhan">    
+             <button class="cta" onclick="hideshow('phong1')"> 
+                    <span>Chi tiết</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                      <path d="M1,5 L11,5"></path>
+                      <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+            </button>
+
+            <button class="cta" onclick="hideshow('phong2')"> 
+                <span>Chi tiết</span>
+                <svg viewBox="0 0 13 10" height="10px" width="15px">
+                  <path d="M1,5 L11,5"></path>
+                  <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+            </button>
+            <button class="cta" onclick="hideshow('phong3')"> 
+                <span>Chi tiết</span>
+                <svg viewBox="0 0 13 10" height="10px" width="15px">
+                  <path d="M1,5 L11,5"></path>
+                  <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+            </button>
+            </div>
+            <div class ="Room">
+            <div class="room" id="phong1">
+                <p class="r1"><b>PHÒNG 1:</b></p>
+                <div class="room1-1">
+                <div class="imgroom1">
+                    <img src="4158502.png" alt="" width="50px" height="50px">  </div>
+                <h6>Nhiệt Độ: <span id="nhietdo1">00</span> °C</h6>     
+                <div class="imgroom1">
+                    <img src="3262966.png" alt="" width="50px" height="50px">
+                </div>       
+                <h6> Độ Ẩm: <span id="doam1">00</span> %</h6>
+                <div class="sensor">
+                <div class="imgroom1">
+                    <img src="9134511.png" alt="" width="50px" height="50px">
+                </div> 
+                <h9> Cảm Biến Chuyển Động: <span id="cambienchuyendong1" ></span></h9>
+                </div>
+                <div class="air">
+                    <img id="airId_01" class="card-img-top" src="maylanh12.png" alt="Card image" style="width:150px">
+                <div class="btn1">
+                    <button class="btn11" id="btnOnId_01">ON</button>
+                    <button class="btn11" id="btnOffId_01">OFF</button>
+                </div>
+                </div>
+                <div class="lamp">
+                    <img id="denId_01" class="card-img-top" src="den2.jpg" alt="Card image" style="width:150px">
+                <div class="btn1">
+                    <button class="btn11" id="btnOnId_02">ON</button>
+                    <button class="btn11" id="btnOffId_02">OFF</button>
+                </div>
+                </div>
+                <div class="fan">
+                    <img id="fanId_01" class="card-img-top" src="fan1.jpg" alt="Card image" style="width:150px">
+                <div class="btn1">
+                    <button class="btn11" id="btnOnId_03">ON</button>
+                    <button class="btn11" id="btnOffId_03">OFF</button>
+                </div>
+                </div>
+               </div>
+            </div>
+            <div class="room" id="phong2">
+                <p class="r1"><b>PHÒNG 2:</b></p> 
+                <div class="room1-1">
+                <div class="imgroom2">
+                    <img src="4158502.png" alt="" width="50px" height="50px">
+                </div>   
+                <h6>Nhiệt Độ: <span id="nhietdo2">00</span>°C </h6>     
+                <div class="imgroom2">
+                    <img src="3262966.png" alt="" width="50px" height="50px">
+                </div>       
+                <h6> Độ Ẩm: <span id="doam2">00</span> %</h6>
+                <div class="sensor">
+                <div class="imgroom1">
+                    <img src="9134511.png" alt="" width="50px" height="50px">
+                </div> 
+                <h9> Cảm Biến Chuyển Động: <span id="cambienchuyendong2" ></span></h9>
+                </div>
+                <div class="air">
+                    <img id="airId_02" class="card-img-top" src="maylanh12.png" alt="Card image" style="width:150px">
+                <div class="btn1">
+                    <button class="btn11" id="btnOnId_04">ON</button>
+                    <button class="btn11" id="btnOffId_04">OFF</button>
+                </div>
+                </div>
+                <div class="lamp">
+                    <img id="denId_02" class="card-img-top" src="den2.jpg" alt="Card image" style="width:150px">
+                <div class="btn1">
+                    <button class="btn11" id="btnOnId_05">ON</button>
+                    <button class="btn11" id="btnOffId_05">OFF</button>
+                </div>
+                </div>
+                <div class="fan">
+                    <img id="fanId_02" class="card-img-top" src="fan1.jpg" alt="Card image" style="width:150px">
+                <div class="btn1">
+                    <button class="btn11" id="btnOnId_06">ON</button>
+                    <button class="btn11" id="btnOffId_06">OFF</button>
+                </div>
+                </div>
+                </div>
+            </div>
+            <div class="room" id="phong3">
+                <p class="r1"><b>PHÒNG 3:</b></p> 
+                <div class="room1-1">
+                <div class="imgroom3">
+                    <img src="4158502.png" alt="" width="50px" height="50px">
+                </div>   
+                <h6>Nhiệt Độ: <span id="nhietdo3">00</span>°C </h6>     
+                <div class="imgroom3">
+                    <img src="3262966.png" alt="" width="50px" height="50px">
+                </div>       
+                <h6> Độ Ẩm: <span id="doam3">00</span>%</h6>
+                <div class="sensor">
+                <div class="imgroom1">
+                    <img src="9134511.png" alt="" width="50px" height="50px">
+                </div> 
+                <h9> Cảm Biến Chuyển Động: <span id="cambienchuyendong3" ></span></h9>
+                </div>
+                <div class="air">
+                    <img id="airId_03" class="card-img-top" src="maylanh12.png" alt="Card image" style="width:150px">
+                <div class="btn1">
+                    <button class="btn11" id="btnOnId_07">ON</button>
+                    <button class="btn11" id="btnOffId_07">OFF</button>
+                </div>
+                </div>
+                <div class="lamp">
+                    <img id="denId_03" class="card-img-top" src="den2.jpg" alt="Card image" style="width:150px">
+                <div class="btn1">
+                    <button class="btn11" id="btnOnId_08">ON</button>
+                    <button class="btn11" id="btnOffId_08">OFF</button>
+                </div>
+                </div>
+                <div class="fan">
+                    <img id="fanId_03" class="card-img-top" src="fan1.jpg" alt="Card image" style="width:150px">
+                <div class="btn1">
+                    <button class="btn11" id="btnOnId_09">ON</button>
+                    <button class="btn11" id="btnOffId_09">OFF</button>
+                </div>
+                </div>
+                </div>
+            </div>
+            </div>  
+            <div class="lh"><b>THÔNG TIN LIÊN HỆ</b></div> <div class="line " >  </div>    
+            <div id="end" class="end"> <h7><img src="end.webp" alt="" width="105%" height="450px"></h7>
+            <div class="diachi">
+                <p><b>TẬP ĐOÀN CÔNG NGHỆ START.</b></p>
+                <li><a>Điện thoại: (84-24)39 818 1315, Email: ducminh@gmail.com.vn</a></li>
+                <li><a>Địa chỉ: số 1, Võ Văn Ngân, TP Thủ Đức</a></li>
+            </div>
+            <div class="container1">
+                <div class="contact-box">
+                    <div class="right">
+                        <h8><b>Contact Us</b></h8>
+                        <input type="text" class="field" placeholder="Your Name">
+                        <input type="text" class="field" placeholder="Your Email">
+                        <input type="text" class="field" placeholder="Phone">
+                        <textarea placeholder="Message" class="field"></textarea>
+                        <button class="btn">Send</button>
+                    </div>
+                </div>
+            </div>
+            <div class="MXH">
+                <div class="icon"> 
+                    <a href="#" title="Follow on Github" ><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.facebook.com/ddminh0104" title="Follow on Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/thh.trungg/" title="Follow on Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCs7ohcBWM2ASMj5ChZNFFKQ" title="Follow on Youtube"><i class="fa-brands fa-youtube"></i></a></div>
+            </div>
+            <div class="profile1">
+                    <div class="container7">
+                        <div class="mycard">
+                            <div class="cimg">
+                                <img src="anhcuaminh.jpg" alt="" width="130px" height="130px">
+                            </div>
+                            <div class="cdetail">
+                                <h5>Doãn Đức Minh</h5>
+                                <li>MSSV: 20161231.</li>
+                                <li>Đại học Sư Phạm Kỹ Thuật TP.HCM</li>
+                            </div>
+                        </div>
+                        <div class="mycard">
+                            <div class="cimg">
+                                <img src="hinhtui.jpg" alt="" width="130px" height="130px">
+                            </div>
+                            <div class="cdetail">
+                                <h5>Lý Thành Trung</h5>
+                                <li>MSSV: 20161276.</li>
+                                <li>Đại học Sư Phạm Kỹ Thuật TP.HCM</li>
+                            </div>
+                        </div>
+                </div>   
+            </div> 
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <script src="index2.js"></script>
+ </body>
+</html>
